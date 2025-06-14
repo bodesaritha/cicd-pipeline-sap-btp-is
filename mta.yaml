@@ -15,5 +15,5 @@ resources:
   - name: process-integration-runtime-instance # This name must match the 'requires' name above
     type: org.cloudfoundry.managed-service
     parameters:
-      service: process-integration-runtime # The CF service for Cloud Integration
+      service: it-rt # The CF service for Cloud Integration
       service-plan: integration-flow # The specific service plan for content deployment

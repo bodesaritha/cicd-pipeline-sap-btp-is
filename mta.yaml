@@ -5,7 +5,7 @@ version: 0.0.1
 modules:
   - name: IFLOW-1 # The name of your iFlow artifact
     type: com.sap.integration
-    path: IntegrationArtifacts/IFLOW-1.zip
+    path: IntegrationArtifacts/IFLOW-1
     requires:
       - name: process-integration-runtime-instance # This name must match the resource name below
         parameters:

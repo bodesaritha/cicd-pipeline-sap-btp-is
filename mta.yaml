@@ -7,13 +7,13 @@ modules:
     type: com.sap.integration
     path: IFLOW-1
     requires:
-      - name: process-api-instance # This name must match the resource name below
+      - name: is-dev-integration-api # This name must match the resource name below
         parameters:
           content-target: true
 
 resources:
-  - name: process-api-instance # This name must match the 'requires' name above
-    type: org.cloudfoundry.managed-service
+  - name: is-dev-integration-api # This name must match the 'requires' name above
+    type: org.cloudfoundry.existing-service
     parameters:
       service: it-rt # The CF service for Cloud Integration
       service-plan: api # The specific service plan for content deployment

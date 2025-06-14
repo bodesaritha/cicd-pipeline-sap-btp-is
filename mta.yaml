@@ -1,9 +1,9 @@
 _schema-version: "3.2"
-ID: "DEMOPACKAGE"
+ID: "TESTPACKAGE"
 version: "0.0.1"
-description: "This is the demo package and iflow"
+description: "This is the test package and iflow"
 modules:
-  - name: "DEMOPACKAGE"
+  - name: "TESTPACKAGE"
     type: com.sap.integration
     path: "IntegrationArtifacts/IFLOW-1.zip" # This is the folder containing your CPI flow artifacts
     parameters:

@@ -5,6 +5,6 @@ description: "This is the demo package and iflow"
 modules:
   - name: "DEMOPACKAGE"
     type: com.sap.integration
-    path: "IntegrationArtifacts/TEST-1.zip" # This is the folder containing your CPI flow artifacts
+    path: "IntegrationArtifacts/IFLOW-1.zip" # This is the folder containing your CPI flow artifacts
     parameters:
       content-target: true

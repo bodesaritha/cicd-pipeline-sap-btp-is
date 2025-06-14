@@ -5,7 +5,7 @@ version: 0.0.1
 modules:
   - name: TESTPACKAGE # The name of your iFlow artifact
     type: com.sap.integration
-    path:  IntegrationArtifacts/IFLOW-1
+    path:  IntegrationArtifacts/IFLOW-1.zip
     requires:
       - name: process-integration-transport-instance # This name must match the resource name below
         parameters:

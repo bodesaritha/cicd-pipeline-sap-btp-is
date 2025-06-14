@@ -5,7 +5,7 @@ version: 0.0.1
 modules:
   - name: IFLOW-1 # The name of your iFlow artifact
     type: com.sap.integration
-    path: IntegrationArtifacts/IFLOW-1/src/main/resources/scenarioflows/integrationflow
+    path: IntegrationArtifacts
     requires:
       - name: process-integration-instance # This name must match the resource name below
         parameters:

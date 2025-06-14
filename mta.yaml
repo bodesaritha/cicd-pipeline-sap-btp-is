@@ -7,12 +7,12 @@ modules:
     type: com.sap.application.content
     path: IFLOW-1
     requires:
-      - name: process-integration-runtime-instance # This name must match the resource name below
+      - name: process-integration-instance # This name must match the resource name below
         parameters:
           content-target: true
 
 resources:
-  - name: process-integration-runtime-instance # This name must match the 'requires' name above
+  - name: process-integration-instance # This name must match the 'requires' name above
     type: org.cloudfoundry.managed-service
     parameters:
       service: it-rt # The CF service for Cloud Integration

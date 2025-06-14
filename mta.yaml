@@ -1,0 +1,10 @@
+_schema-version: "3.2"
+ID: "DEMOPACKAGE"
+version: "0.0.1"
+description: "This is the demo package and iflow"
+modules:
+  - name: "DEMOPACKAGE"
+    type: com.sap.integration
+    path: "IntegrationArtifacts/TEST-1.zip" # This is the folder containing your CPI flow artifacts
+    parameters:
+      content-target: true

@@ -1,3 +1,4 @@
+---
 _schema-version: "3.2"
 ID: my-iflow-deployment-project
 version: 0.0.1
@@ -5,15 +6,14 @@ modules:
   - name: deploy-iflow-artifact
     type: com.sap.integration
     path: IFLOW-1.zip
-    parameters:
-      content-type: integrationFlow
-      integration-flow-id: IFLOW-1
-      package-id: TESTPACKAGE
-      integration-flow-version: 1.0.1
     requires:
       - name: is-dev-integration-api
         parameters:
           content-target: true
+          content-type: integrationFlow
+          integration-flow-id: IFLOW-1
+          package-id: TESTPACKAGE
+          integration-flow-version: 1.0.1
 resources:
   - name: is-dev-integration-api
     type: org.cloudfoundry.existing-service

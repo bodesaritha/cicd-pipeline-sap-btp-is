@@ -6,6 +6,11 @@ modules:
   - name: IFLOW-1 # The name of your iFlow artifact
     type: com.sap.integration
     path: IFLOW-1.zip
+    parameters:
+      content-type: integrationFlow
+      integration-flow-id: IFLOW-1
+      package-id: TESTPACKAGE
+      integration-flow-version: 1.0.1
     requires:
       - name: is-dev-integration-api # This name must match the resource name below
         parameters:

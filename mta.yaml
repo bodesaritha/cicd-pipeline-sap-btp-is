@@ -8,7 +8,7 @@ version: 0.0.1
 modules:
   - name: deploy-iflow-artifact
     # Type for a Cloud Integration runtime artifact.
-    type: com.sap.integration
+    type: com.sap.it.iflmap
     # Path to the iFlow artifact zip.
     path: IFLOW-1.zip
     # The only required parameter is content-target, which points to the resource.

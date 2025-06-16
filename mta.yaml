@@ -1,0 +1,18 @@
+---
+_schema-version: "3.2"
+ID: my-iflow-deployment-project
+version: 0.0.1
+modules:
+  - name: deploy-iflow-artifact
+    type: com.sap.integration
+    path: IFLOW-1.zip
+    requires:
+      - name: is-api-instance
+        parameters:
+          content-target: true
+resources:
+  - name: is-api-instance
+    type: org.cloudfoundry.existing-service
+    parameters:
+      service: it-rt
+      service-plan: api

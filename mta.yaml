@@ -1,9 +1,8 @@
-_schema-version: '3.2'
+_schema-version: "3.2"
 ID: TESTPACKAGE
 version: 0.0.1
-
 modules:
-  - name: TESTPACKAGE # The name of your iFlow artifact
+  - name: TESTPACKAGE
     type: com.sap.integration
     path: IFLOW-1.zip
     parameters:
@@ -12,13 +11,12 @@ modules:
       package-id: TESTPACKAGE
       integration-flow-version: 1.0.1
     requires:
-      - name: is-dev-integration-api # This name must match the resource name below
+      - name: is-dev-integration-api
         parameters:
           content-target: true
-
 resources:
-  - name: is-dev-integration-api # This name must match the 'requires' name above
+  - name: is-dev-integration-api
     type: org.cloudfoundry.existing-service
     parameters:
-      service: it-rt # The CF service for Cloud Integration
-      service-plan: api # The specific service plan for content deployment
+      service: it-rt
+      service-plan: api

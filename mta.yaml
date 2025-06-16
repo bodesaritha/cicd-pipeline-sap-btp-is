@@ -1,20 +1,24 @@
----
-_schema-version: "3.2"
+# MTA Schema version.
+_schema-version: '3.2'
+
+# Unique ID for the deployment project.
 ID: my-iflow-deployment-project
 version: 0.0.1
+
 modules:
   - name: deploy-iflow-artifact
+    # Type for a Cloud Integration runtime artifact.
     type: com.sap.integration
+    # Path to the iFlow artifact zip.
     path: IFLOW-1.zip
+    # The only required parameter is content-target, which points to the resource.
     requires:
       - name: is-dev-integration-api
         parameters:
           content-target: true
-          content-type: integrationFlow
-          integration-flow-id: IFLOW-1
-          package-id: TESTPACKAGE
-          integration-flow-version: 1.0.1
+
 resources:
+  # The resource definition remains the same.
   - name: is-dev-integration-api
     type: org.cloudfoundry.existing-service
     parameters:

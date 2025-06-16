@@ -3,7 +3,7 @@ ID: TESTPACKAGE
 version: 0.0.1
 
 modules:
-  - name: IFLOW-1 # The name of your iFlow artifact
+  - name: TESTPACKAGE # The name of your iFlow artifact
     type: com.sap.integration
     path: IFLOW-1.zip
     parameters:

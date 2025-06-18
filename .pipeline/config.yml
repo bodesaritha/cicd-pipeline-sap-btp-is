@@ -7,6 +7,41 @@ stages:
   Build:
     mavenExecuteStaticCodeChecks: false
     npmExecuteLint: false
+    # --- Start of new content for CPI zip validation ---
+    steps: # Adding custom steps within the Build stage
+      - name: "gitRetrieve" # Step to clone the Git repository containing your CPI artifact
+        configuration:
+          targetPath: "cpi-repo" # The repository (including .pipeline, IFLOW-1.zip, mta.yaml)
+                                 # will be cloned into this 'cpi-repo' folder in the pipeline's workspace.
+
+      - name: "shell" # Custom shell script for validating the CPI zip file content
+        configuration:
+          script: |
+            echo "--- Validating CPI zip file content for availability ---"
+            # IMPORTANT: This path is relative to the pipeline's workspace root.
+            # Since 'gitRetrieve' clones the repo into 'cpi-repo', and 'IFLOW-1.zip'
+            # is at the root of your repository (as per screenshot),
+            # the full path within the workspace will be 'cpi-repo/IFLOW-1.zip'.
+            CPI_ZIP_FILE="cpi-repo/IFLOW-1.zip" # <-- CORRECTED PATH based on your screenshot
+
+            # Check if the specified CPI zip file exists
+            if [ ! -f "$CPI_ZIP_FILE" ]; then
+              echo "Error: CPI zip file not found at '$CPI_ZIP_FILE'."
+              echo "Please ensure the path is correct and the file exists in the repository."
+              exit 1 # Fail the build if the file is not found
+            fi
+
+            # List contents of the zip file, filter out directories, and check if any files remain.
+            # If the zip is empty or contains only directories, this command will return a non-zero exit code.
+            if ! unzip -l "$CPI_ZIP_FILE" | grep -v "/$" | grep -q .; then
+              echo "Error: The CPI zip file '$CPI_ZIP_FILE' is empty or contains only directories."
+              echo "Build will fail as per the requirement for non-empty content."
+              exit 1 # Fail the build if the zip file is empty or contains only directories
+            else
+              echo "CPI zip file '$CPI_ZIP_FILE' contains valid content. Proceeding with the pipeline."
+            fi
+          failOnStderr: true # Ensures the build fails if the shell script exits with an error (non-zero status)
+    # --- End of new content ---
   Acceptance:
     cloudFoundryDeploy: false
     npmExecuteEndToEndTests: false
@@ -14,7 +49,7 @@ stages:
     malwareExecuteScan: false
   Release:
     tmsExport: false
-    tmsUpload: true
+    tmsUpload: true # This remains true as per your original request
     cloudFoundryDeploy: false
   Additional Unit Tests:
     npmExecuteScripts: false
@@ -24,5 +59,9 @@ steps:
   tmsUpload:
     nodeName: "CF_TEST_NODE"
     credentialsId: "tms-credentials"
+    # Note: If 'tmsUpload' is intended to transport a CPI MTAR, ensure your build process
+    # (e.g., a preceding custom script or an 'mtaBuild' configured for CPI) correctly
+    # generates the MTAR from the CPI zip, and that 'tmsUpload' is configured to pick up that MTAR.
+    # This specific change only adds the content validation, not the MTAR generation for tmsUpload.
   artifactPrepareVersion:
     versioningType: "cloud_noTag"

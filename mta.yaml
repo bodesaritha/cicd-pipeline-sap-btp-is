@@ -4,7 +4,7 @@ ID: my-iflow-deployment-project
 version: 0.0.1
 modules:
   - name: deploy-iflow-artifact
-    type: com.sap.integration
+    type: com.sap.cloud.services.integration.adaptor
     path: IFLOW-1.zip
     requires:
       - name: is-api-instance

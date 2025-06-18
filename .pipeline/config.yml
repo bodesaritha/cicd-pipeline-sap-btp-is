@@ -1,0 +1,28 @@
+---
+general:
+  buildTool: "mta"
+service:
+  buildToolVersion: "MBTJ21N22"
+stages:
+  Build:
+    mavenExecuteStaticCodeChecks: false
+    npmExecuteLint: false
+  Acceptance:
+    cloudFoundryDeploy: false
+    npmExecuteEndToEndTests: false
+  Malware Scan:
+    malwareExecuteScan: false
+  Release:
+    tmsExport: false
+    tmsUpload: true
+    cloudFoundryDeploy: false
+  Additional Unit Tests:
+    npmExecuteScripts: false
+  Compliance:
+    sonarExecuteScan: false
+steps:
+  tmsUpload:
+    nodeName: "CF_TEST_NODE"
+    credentialsId: "tms-credentials"
+  artifactPrepareVersion:
+    versioningType: "cloud_noTag"

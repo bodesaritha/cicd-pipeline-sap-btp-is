@@ -6,7 +6,7 @@ version: 0.0.1
 modules:
 - name: DEMOPACKAGE
   type: com.sap.integration
-  path: DEMOPACKAGE.zip
+  path: DEMO_PACKAGE.zip
   properties: {}
   parameters: {}
   requires:
@@ -20,16 +20,11 @@ modules:
           parameters:
             resource-type: ContentPackage
             technical-name: DEMOPACKAGE
-            # resource-id: a1a264b7b25e4c9e8a5b670599b2af29
+            # resource-id: a1a264b7b25e4c9e8a5b670599b2af28
 
 resources:
 - name: is-api-instance
-  type: org.cloudfoundry.managed-service
+  type: org.cloudfoundry.existing-service
   parameters:
     service-plan: api
     service: it-rt
-    config:
-      roles:
-        - WorkspacePackagesTransport
-    skip-service-updates:
-      parameters: true

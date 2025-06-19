@@ -1,28 +1,35 @@
 ---
 _schema-version: "3.2"
-ID: my-iflow-deployment-project-new
+ID: a1a264b7b25e4c9e8a5b670599b2af28
 version: 0.0.1
+
 modules:
-- name: deploy-iflow-artifact
+- name: DEMOPACKAGE
   type: com.sap.integration
-  path: TEST-1.zip
+  path: DEMOPACKAGE.zip
+  properties: {}
+  parameters: {}
   requires:
   - name: is-api-instance
     parameters:
       content-target: true
-      # ADD THIS CONFIGURATION BLOCK:
       config:
         module:
-          name: TEST-1 # This should be the name of your integration flow/content package in CPI
-          type: com.sap.integration # The type of the module (e.g., Integration Flow, ContentPackage)
+          name: DEMOPACKAGE
+          type: com.sap.integration
           parameters:
-            resource-type: IntegrationFlow # Or ContentPackage, depending on what IFLOW-1 represents in CPI
-            technical-name: TEST-1 # The technical name of the resource in CPI
-            # If IFLOW-1 is an Integration Flow and you want to specify its ID, you might add:
-            # resource-id: <actual_CPI_integration_flow_ID>
+            resource-type: ContentPackage
+            technical-name: DEMOPACKAGE
+            # resource-id: a1a264b7b25e4c9e8a5b670599b2af29
+
 resources:
 - name: is-api-instance
-  type: org.cloudfoundry.existing-service
+  type: org.cloudfoundry.managed-service
   parameters:
-    service: it-rt
     service-plan: api
+    service: it-rt
+    config:
+      roles:
+        - WorkspacePackagesTransport
+    skip-service-updates:
+      parameters: true

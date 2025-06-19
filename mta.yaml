@@ -6,7 +6,7 @@ version: 0.0.1
 modules:
 - name: TMSTEST
   type: com.sap.integration
-  path: TEST_TMS.zip
+  path: TMS_TEST.zip
   properties: {}
   parameters: {}
   requires:

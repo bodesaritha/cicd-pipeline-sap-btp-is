@@ -1,12 +1,12 @@
 ---
 _schema-version: "3.2"
-ID: a1a264b7b25e4c9e8a5b670599b2af23
+ID: a1a264b7b25e4c9e8a5b670599b2af20
 version: 0.0.1
 
 modules:
-- name: DEMOPACKAGE
+- name: TMSTEST
   type: com.sap.integration
-  path: DEMO_PACKAGE.zip
+  path: TEST_TMS.zip
   properties: {}
   parameters: {}
   requires:
@@ -15,12 +15,12 @@ modules:
       content-target: true
       config:
         module:
-          name: DEMOPACKAGE
+          name: TMSTEST
           type: com.sap.integration
           parameters:
             resource-type: ContentPackage
-            technical-name: DEMOPACKAGE
-            # resource-id: a1a264b7b25e4c9e8a5b670599b2af23
+            technical-name: TMSTEST
+            # resource-id: a1a264b7b25e4c9e8a5b670599b2af20
 
 resources:
 - name: is-api-instance

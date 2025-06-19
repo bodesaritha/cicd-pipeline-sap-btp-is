@@ -1,9 +1,9 @@
 ---
 _schema-version: "3.2"
-ID: my-iflow-deployment-project
+ID: TESTPACKAGE
 version: 0.0.1
 modules:
-  - name: deploy-iflow-artifact
+  - name: IFLOW-1
     type: com.sap.integration
     path: IFLOW-1
     requires:

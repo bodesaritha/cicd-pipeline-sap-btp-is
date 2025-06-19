@@ -1,6 +1,6 @@
 ---
 _schema-version: "3.2"
-ID: a1a264b7b25e4c9e8a5b670599b2af28
+ID: a1a264b7b25e4c9e8a5b670599b2af23
 version: 0.0.1
 
 modules:
@@ -20,7 +20,7 @@ modules:
           parameters:
             resource-type: ContentPackage
             technical-name: DEMOPACKAGE
-            # resource-id: a1a264b7b25e4c9e8a5b670599b2af28
+            # resource-id: a1a264b7b25e4c9e8a5b670599b2af23
 
 resources:
 - name: is-api-instance

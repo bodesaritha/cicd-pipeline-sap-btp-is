@@ -1,11 +1,11 @@
 ---
 _schema-version: "3.2"
-ID: my-iflow-deployment-project
+ID: my-iflow-deployment-project-new
 version: 0.0.1
 modules:
-- name: deploy-artifact
+- name: deploy-iflow-artifact
   type: com.sap.integration
-  path: IFLOW-1.zip
+  path: TEST-1.zip
   requires:
   - name: is-api-instance
     parameters:
@@ -13,11 +13,11 @@ modules:
       # ADD THIS CONFIGURATION BLOCK:
       config:
         module:
-          name: IFLOW-1 # This should be the name of your integration flow/content package in CPI
+          name: TEST-1 # This should be the name of your integration flow/content package in CPI
           type: com.sap.integration # The type of the module (e.g., Integration Flow, ContentPackage)
           parameters:
             resource-type: IntegrationFlow # Or ContentPackage, depending on what IFLOW-1 represents in CPI
-            technical-name: IFLOW-1 # The technical name of the resource in CPI
+            technical-name: TEST-1 # The technical name of the resource in CPI
             # If IFLOW-1 is an Integration Flow and you want to specify its ID, you might add:
             # resource-id: <actual_CPI_integration_flow_ID>
 resources:
